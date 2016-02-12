@@ -10,3 +10,4 @@ Features:
 - Shift (arrows)
 - Color depends on the height
 - Multiple projection (with key 1, 2, 3 or 4)
+- Repeatkey [on]
