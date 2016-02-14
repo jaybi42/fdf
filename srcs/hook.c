@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 19:48:09 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/12 15:42:24 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/14 17:50:11 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int		key_hook_exp(int in, t_env *e)
 		e->pixel--;
 	else if (in == KP_0)
 		e->deep--;
-	else if (in == KP_1 && e->deep < 20)
+	else if (in == KP_1 && e->deep < 100)
 		e->deep++;
 	else if (in == UP)
 		e->shift_h -= 10;

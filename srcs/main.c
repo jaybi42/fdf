@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 14:56:00 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/12 18:09:48 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/14 17:39:04 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	init_env(t_env *e, char *win_name)
 	if (e->fb.framebuffer == NULL)
 		return (1);
 	e->in = 0;
-	e->pixel = 16;
+	e->pixel = HEIGHT / e->map.l_size;
 	e->deep = 0;
 	e->zoom = 0;
 	e->time = TIME_INIT;

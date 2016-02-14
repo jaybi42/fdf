@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/01 15:48:22 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/12 18:44:50 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/14 18:53:43 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static void	iso(t_env *e, int dot1, int dot2)
 
 	value1 = ((int*)e->map.v.data)[dot1];
 	value2 = ((int*)e->map.v.data)[dot2];
+	color_pixel_deep(e, (value1 > value2 ? value1 : value2));
+//	printf("[%i][%i]\n", value1, value2);
 	value1 == 0 ? value1 : (value1 += e->deep * e->pixel);
 	value2 == 0 ? value2 : (value2 += e->deep * e->pixel);
 //	printf("AVANT: dot1[%i,%i] dot2[%i,%i]\n", e->coord.x1, e->coord.y1, e->coord.x2, e->coord.y2);

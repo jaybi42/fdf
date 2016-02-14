@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 18:20:40 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/12 16:19:31 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/14 17:49:02 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,11 @@ static void		index_start(t_env *e)
 	start = start + (WIDTH - map_w) / 2;
 	y_start = start / WIDTH;
 	x_start = start % WIDTH;
+//	printf("y_start : [%i], x_start : [%i]\n", y_start, x_start);
 	X1 += x_start + e->shift_w; 
 	Y1 += y_start + e->shift_h; 
 	X2 += x_start + e->shift_w; 
-	Y2 += y_start + e->shift_h; 
+	Y2 += y_start + e->shift_h;
 }
 
 void			black_img(t_env *e, int width, int height)
