@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 18:20:40 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/14 17:49:02 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/15 18:36:51 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ static void		draw_line_v(t_env *e)
 		a = ((float)Y2 - (float)Y1) / ((float)X2 - (float)X1);
 	while (Y1 + j != Y2)
 	{
-		index = (WIDTH * (Y1 + j) + X1);
+		index = Y1 + j;
+		index = index * WIDTH + X1;
 		if (X1 > 0 && Y1 + j > 0 && X1 < WIDTH && Y1 + j < HEIGHT)
 			draw_pixel(e, e->coord.color, index);
 		Y1 < Y2 ? j++ : j--;
@@ -47,6 +48,7 @@ static void		draw_line_v(t_env *e)
 	if (X2 > 0 && Y2 > 0 && X2 < WIDTH && Y2 < HEIGHT)
 		draw_pixel(e, e->coord.color, index);
 }
+//		index = (WIDTH * (Y1 + j) + X1);
 
 void			draw_line(t_env *e)
 {
@@ -70,8 +72,7 @@ void			draw_line(t_env *e)
 			draw_pixel(e, e->coord.color, index);
 		X1 < X2 ? j++ : j--;
 		y = a * (float)((X1 + j) - (X2)) + (float)Y2;
-		Y1 = (int)(y * 100);
-		Y1 /= 100;
+		Y1 = (int)(y * 100) / 100;
 	}
 	index = (WIDTH * Y2 + X2);
 	if (X2 > 0 && Y2 > 0 && X2 < WIDTH && Y2 < HEIGHT)
@@ -93,9 +94,9 @@ static void		index_start(t_env *e)
 	y_start = start / WIDTH;
 	x_start = start % WIDTH;
 //	printf("y_start : [%i], x_start : [%i]\n", y_start, x_start);
-	X1 += x_start + e->shift_w; 
-	Y1 += y_start + e->shift_h; 
-	X2 += x_start + e->shift_w; 
+	X1 += x_start + e->shift_w;
+	Y1 += y_start + e->shift_h;
+	X2 += x_start + e->shift_w;
 	Y2 += y_start + e->shift_h;
 }
 
