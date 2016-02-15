@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/02 19:17:14 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/14 17:26:47 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/15 15:59:18 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void		pixel_64(t_env *e, int color, int index)
 	((uint64_t*)e->fb.framebuffer)[index] = (uint64_t)color;
 }
 
-void	draw_pixel(t_env *e, int color, int index)
+void			draw_pixel(t_env *e, int color, int index)
 {
 	if (e->fb.bpp == 8)
 		pixel_8(e, color, index);

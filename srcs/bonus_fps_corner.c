@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:01:49 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/12 19:33:19 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/15 16:03:55 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,15 @@ static void	border_0(t_env *e)
 		Y1--;
 		Y2--;
 	}
-	i = 0;
+	i = -1;
 	X1 = SQUARE_FPS;
 	Y1 = 0;
 	Y2 = SQUARE_FPS;
-	while (i < BORDER_FPS)
+	while (++i < BORDER_FPS)
 	{
 		draw_line(e);
 		X1--;
 		X2--;
-		i++;
 	}
 }
 
@@ -59,16 +58,15 @@ static void	border_1(t_env *e)
 		Y1--;
 		Y2--;
 	}
-	i = 0;
+	i = -1;
 	Y1 = 0;
 	X2 = WIDTH - SQUARE_FPS;
 	Y2 = SQUARE_FPS;
-	while (i < BORDER_FPS)
+	while (++i < BORDER_FPS)
 	{
 		draw_line(e);
 		X1++;
 		X2++;
-		i++;
 	}
 }
 
@@ -89,16 +87,15 @@ static void	border_2(t_env *e)
 		Y2++;
 		i++;
 	}
-	i = 0;
+	i = -1;
 	Y1 = HEIGHT - SQUARE_FPS;
 	X2 = WIDTH - SQUARE_FPS;
 	Y2 = HEIGHT;
-	while (i < BORDER_FPS)
+	while (++i < BORDER_FPS)
 	{
 		draw_line(e);
 		X1++;
 		X2++;
-		i++;
 	}
 }
 
@@ -119,16 +116,15 @@ static void	border_3(t_env *e)
 		Y2++;
 		i++;
 	}
-	i = 0;
+	i = -1;
 	X1 = SQUARE_FPS;
 	Y1 = HEIGHT - SQUARE_FPS;
 	Y2 = HEIGHT;
-	while (i < BORDER_FPS)
+	while (++i < BORDER_FPS)
 	{
 		draw_line(e);
 		X1--;
 		X2--;
-		i++;
 	}
 }
 

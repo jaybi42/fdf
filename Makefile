@@ -6,7 +6,7 @@
 #    By: jguthert <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/30 15:25:02 by jguthert          #+#    #+#              #
-#    Updated: 2016/02/12 18:52:56 by jguthert         ###   ########.fr        #
+#    Updated: 2016/02/15 15:55:19 by jguthert         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -53,7 +53,6 @@ SRCSFILES =             main.c      		\
 						parcing.c			\
 						draw_pixel.c		\
 						calcul.c			\
-						sync.c				\
 						bonus_fps.c 		\
 						bonus_fps_corner.c	\
 

@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/01 15:48:22 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/15 15:20:08 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/15 18:05:32 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,18 @@ static void	conique(t_env *e, int dot1, int dot2)
 	value2 = ((int*)e->map.v.data)[dot2];
 	value1 == 0 ? value1 : (value1 += e->deep);
 	value2 == 0 ? value2 : (value2 += e->deep);
-//	printf("AVANT: dot1[%i,%i] dot2[%i,%i]\n", e->coord.x1, e->coord.y1, e->coord.x2, e->coord.y2);
 	e->coord.y1 = dot1 / e->map.l_size * e->pixel - value1;
 	e->coord.x1 = dot1 % e->map.l_size * e->pixel - (e->coord.y1 + value1) / 2;
 	e->coord.y2 = dot2 / e->map.l_size * e->pixel - value2;
 	e->coord.x2 = dot2 % e->map.l_size * e->pixel - (e->coord.y2 + value2) / 2;
-//	printf("apres: dot1[%i,%i] dot2[%i,%i]\n", e->coord.x1, e->coord.y1, e->coord.x2, e->coord.y2);
 }
 
 static void	para(t_env *e, int dot1, int dot2)
 {
-//	printf("AVANT: dot1[%i,%i] dot2[%i,%i]\n", e->coord.x1, e->coord.y1, e->coord.x2, e->coord.y2);
 	e->coord.y1 = dot1 / e->map.l_size * e->pixel;
 	e->coord.x1 = dot1 % e->map.l_size * e->pixel - e->coord.y1 / 2;
 	e->coord.y2 = dot2 / e->map.l_size * e->pixel;
 	e->coord.x2 = dot2 % e->map.l_size * e->pixel - e->coord.y2 / 2;
-//	printf("apres: dot1[%i,%i] dot2[%i,%i]\n", e->coord.x1, e->coord.y1, e->coord.x2, e->coord.y2);
 }
 
 static void	perso(t_env *e, int dot1, int dot2)

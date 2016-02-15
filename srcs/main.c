@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 14:56:00 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/14 17:39:04 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/15 18:08:43 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,12 @@ static char	*new_map(char *map)
 	char *new_map;
 	char *buff;
 
-	new_map = ft_strjoin("samples/", map);
-	buff = ft_strjoin(new_map, ".fdf");
-	free(new_map);
-	new_map = buff;
+	buff = ft_strjoin("samples/", map);
+	new_map = ft_strjoin(buff, ".fdf");
+	free(buff);
 	return (new_map);
 }
-	
+
 static int	init_env(t_env *e, char *win_name)
 {
 	e->mlx = mlx_init();
@@ -56,11 +55,11 @@ static int	init_env(t_env *e, char *win_name)
 	e->shift_h = 0;
 	e->shift_w = 0;
 	e->deep = 0;
-	e->zoom = 0; 
+	e->zoom = 0;
 	return (0);
 }
 
-static int			fdf(t_env *e, char *win_name)
+static int	fdf(t_env *e, char *win_name)
 {
 	if (init_env(e, win_name) != 0)
 		return (1);
@@ -96,6 +95,6 @@ int			main(int argc, char **argv)
 			ft_putendl_fd("fdf Error.", 2);
 	}
 	else
-		ft_putendl_fd("\n\033[33mEnter a valid map (or \"help\" to list them).\033[0m\n", 2);
+		ft_putendl_fd("\n\033[33mEnter only one valid map.\033[0m", 2);
 	return (0);
 }

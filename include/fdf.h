@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 19:06:40 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/12 19:32:27 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/15 17:57:27 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@
 # define ERROR ft_error(__FILE__, __FUNCTION__, __LINE__)
 # define ERRORNO ft_errorno(__FILE__, __FUNCTION__, __LINE__)
 
-# define esc 53
+# define ESC 53
 
 # define UP 126
 # define RIGHT 124
 # define LEFT 123
 # define DOWN 125
 
-# define KP_plus 69
-# define KP_minus 78
+# define KP_PLUS 69
+# define KP_MINUS 78
 # define KP_0 82
 # define KP_1 83
 # define KP_5 87
@@ -60,21 +60,12 @@
 # define SQUARE_FPS 100
 # define BORDER_FPS 5
 
-# define C_0 119
-# define C_1 3
-# define C_2 62
-# define C_3 31
-# define C_4 75
-# define C_5 93
-# define C_6 109
-# define C_7 19
-# define C_8 127
-# define C_9 95
-
 # define X1 (e->coord.x1)
 # define X2 (e->coord.x2)
 # define Y1 (e->coord.y1)
 # define Y2 (e->coord.y2)
+# define X_T (e->time.x)
+# define Y_T (e->time.y)
 
 # define ALERT MAKE_COLOR(2555, 0, 0)
 # define RED MAKE_COLOR(154, 80, 79)
@@ -96,8 +87,8 @@
 typedef struct		s_coord
 {
 	int				x1;
-	int				x2;
 	int				y1;
+	int				x2;
 	int				y2;
 	size_t			color;
 }					t_coord;
@@ -173,14 +164,6 @@ int					key_hook(int in, t_env *e);
 int					expose_hook(t_env *e);
 
 /*
-**Name: Sync
-**File: 
-**Desc: 
-*/
-
-void				maconfig(void);
-
-/*
 **Name: Draw
 **File: draw.c draw_pixel.c
 **Desc: Draw functions
@@ -213,7 +196,6 @@ int					calcul(t_env *e, int dot1, int dot2);
 **Desc: bonus functions
 */
 
-void				aff_fps(t_env *e, int unit, int shift);
 void				fps_corner(t_env *e);
 void				fps(t_env *e);
 void				color_pixel_deep(t_env *e, int value);

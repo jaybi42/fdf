@@ -6,18 +6,18 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 19:48:09 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/15 14:56:04 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/15 15:58:12 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <stdlib.h>
 
-static int		key_hook_exp(int in, t_env *e)
+static int	key_hook_exp(int in, t_env *e)
 {
-	if (in == KP_plus)
+	if (in == KP_PLUS)
 		e->pixel++;
-	else if (in == KP_minus && e->pixel > 0)
+	else if (in == KP_MINUS && e->pixel > 0)
 		e->pixel--;
 	else if (in == KP_0)
 		e->deep--;
@@ -33,16 +33,16 @@ static int		key_hook_exp(int in, t_env *e)
 		e->shift_w += 10;
 	else if (in == KEY_1 || in == KEY_2 || in == KEY_3 || in == KEY_4)
 		e->mod = in;
-    return (0);
+	return (0);
 }
 
-int		key_hook(int in, t_env *e)
+int			key_hook(int in, t_env *e)
 {
-    e->in = in;
-	if (in == esc)
+	e->in = in;
+	if (in == ESC)
 	{
 		mlx_destroy_window(e->mlx, e->win);
-        exit(0);
+		exit(0);
 	}
 	if (in == KP_5)
 		e->time.pos = 3;
@@ -56,7 +56,7 @@ int		key_hook(int in, t_env *e)
 	return (0);
 }
 
-int		expose_hook(t_env *e)
+int			expose_hook(t_env *e)
 {
 	if (draw_map(e))
 	{
@@ -66,12 +66,12 @@ int		expose_hook(t_env *e)
 	return (0);
 }
 
-int      loop_hook(t_env *e)
+int			loop_hook(t_env *e)
 {
 	if (draw_map(e))
 	{
 		ERROR;
 		exit(0);
 	}
-    return (0);
+	return (0);
 }
