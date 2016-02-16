@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/01 15:48:22 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/15 18:05:32 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/16 13:48:06 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static void	iso(t_env *e, int dot1, int dot2)
 	value2 == 0 ? value2 : (value2 += e->deep);
 	value1 *= e->pixel;
 	value2 *= e->pixel;
-	e->coord.y1 = dot1 / e->map.l_size * e->pixel - value1;
-	e->coord.x1 = dot1 % e->map.l_size * e->pixel - (e->coord.y1 + value1) / 2;
-	e->coord.y2 = dot2 / e->map.l_size * e->pixel - value2;
-	e->coord.x2 = dot2 % e->map.l_size * e->pixel - (e->coord.y2 + value2) / 2;
+	Y1 = dot1 / e->map.l_size * e->pixel - value1;
+	X1 = dot1 % e->map.l_size * e->pixel - (Y1 + value1) / 2;
+	Y2 = dot2 / e->map.l_size * e->pixel - value2;
+	X2 = dot2 % e->map.l_size * e->pixel - (Y2 + value2) / 2;
 }
 
 static void	conique(t_env *e, int dot1, int dot2)
@@ -46,26 +46,26 @@ static void	conique(t_env *e, int dot1, int dot2)
 	value2 = ((int*)e->map.v.data)[dot2];
 	value1 == 0 ? value1 : (value1 += e->deep);
 	value2 == 0 ? value2 : (value2 += e->deep);
-	e->coord.y1 = dot1 / e->map.l_size * e->pixel - value1;
-	e->coord.x1 = dot1 % e->map.l_size * e->pixel - (e->coord.y1 + value1) / 2;
-	e->coord.y2 = dot2 / e->map.l_size * e->pixel - value2;
-	e->coord.x2 = dot2 % e->map.l_size * e->pixel - (e->coord.y2 + value2) / 2;
+	Y1 = dot1 / e->map.l_size * e->pixel - value1;
+	X1 = dot1 % e->map.l_size * e->pixel - (Y1 + value1) / 2;
+	Y2 = dot2 / e->map.l_size * e->pixel - value2;
+	X2 = dot2 % e->map.l_size * e->pixel - (Y2 + value2) / 2;
 }
 
 static void	para(t_env *e, int dot1, int dot2)
 {
-	e->coord.y1 = dot1 / e->map.l_size * e->pixel;
-	e->coord.x1 = dot1 % e->map.l_size * e->pixel - e->coord.y1 / 2;
-	e->coord.y2 = dot2 / e->map.l_size * e->pixel;
-	e->coord.x2 = dot2 % e->map.l_size * e->pixel - e->coord.y2 / 2;
+	Y1 = dot1 / e->map.l_size * e->pixel;
+	X1 = dot1 % e->map.l_size * e->pixel - Y1 / 2;
+	Y2 = dot2 / e->map.l_size * e->pixel;
+	X2 = dot2 % e->map.l_size * e->pixel - Y2 / 2;
 }
 
 static void	perso(t_env *e, int dot1, int dot2)
 {
-	e->coord.x1 = dot1 % e->map.l_size * e->pixel;
-	e->coord.y1 = dot1 / e->map.l_size * e->pixel;
-	e->coord.x2 = dot2 % e->map.l_size * e->pixel;
-	e->coord.y2 = dot2 / e->map.l_size * e->pixel;
+	X1 = dot1 % e->map.l_size * e->pixel;
+	Y1 = dot1 / e->map.l_size * e->pixel;
+	X2 = dot2 % e->map.l_size * e->pixel;
+	Y2 = dot2 / e->map.l_size * e->pixel;
 }
 
 int			calcul(t_env *e, int dot1, int dot2)
@@ -78,5 +78,9 @@ int			calcul(t_env *e, int dot1, int dot2)
 		conique(e, dot1, dot2);
 	else
 		perso(e, dot1, dot2);
+	if ((X1 < 0 && X2 < 0) || (X1 > WIDTH && X2 > WIDTH))
+		return (1);
+	if ((Y1 < 0 && Y2 < 0) || (Y1 > HEIGHT && Y2 > HEIGHT))
+		return (1);
 	return (0);
 }

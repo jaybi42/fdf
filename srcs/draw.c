@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 18:20:40 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/15 18:36:51 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/16 13:49:04 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ static void		draw_line_v(t_env *e)
 		a = ((float)Y2 - (float)Y1) / ((float)X2 - (float)X1);
 	while (Y1 + j != Y2)
 	{
-		index = Y1 + j;
-		index = index * WIDTH + X1;
+		index = (Y1 + j) * WIDTH + X1;
 		if (X1 > 0 && Y1 + j > 0 && X1 < WIDTH && Y1 + j < HEIGHT)
 			draw_pixel(e, e->coord.color, index);
 		Y1 < Y2 ? j++ : j--;
@@ -48,7 +47,6 @@ static void		draw_line_v(t_env *e)
 	if (X2 > 0 && Y2 > 0 && X2 < WIDTH && Y2 < HEIGHT)
 		draw_pixel(e, e->coord.color, index);
 }
-//		index = (WIDTH * (Y1 + j) + X1);
 
 void			draw_line(t_env *e)
 {
@@ -133,15 +131,19 @@ int				draw_map(t_env *e)
 	{
 		if (i % e->map.l_size != 0)
 		{
-			calcul(e, i - 1, i);
-			index_start(e);
-			draw_line(e);
+			if (calcul(e, i - 1, i) == 0)
+			{
+				index_start(e);
+				draw_line(e);
+			}
 		}
 		if (i / (int)e->map.l_size != 0)
 		{
-			calcul(e, i - e->map.l_size, i);
-			index_start(e);
-			draw_line(e);
+			if (calcul(e, i - e->map.l_size, i) == 0)
+			{
+				index_start(e);
+				draw_line(e);
+			}
 		}
 		i++;
 	}
