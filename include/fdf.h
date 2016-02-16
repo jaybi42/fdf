@@ -6,18 +6,12 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 19:06:40 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/15 17:57:27 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/16 17:05:59 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-
-/*
-** TODO: Remove stdio.h
-*/
-
-# include <stdio.h> //
 
 # include "libft.h"
 # include "mlx.h"
@@ -28,6 +22,7 @@
 # define ERRORNO ft_errorno(__FILE__, __FUNCTION__, __LINE__)
 
 # define ESC 53
+# define SPACE 49
 
 # define UP 126
 # define RIGHT 124
@@ -135,7 +130,6 @@ typedef struct		s_env
 	int				deep;
 	int				shift_h;
 	int				shift_w;
-	int				zoom;
 	int				pixel;
 	int				mod;
 	t_coord			coord;

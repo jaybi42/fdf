@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 18:20:40 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/16 16:55:22 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/16 17:05:31 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ static int		index_start(t_env *e)
 	Y1 += y_start + e->shift_h;
 	X2 += x_start + e->shift_w;
 	Y2 += y_start + e->shift_h;
-    if ((X1 < 0 && X2 < 0) || (X1 > WIDTH && X2 > WIDTH))
-        return (1);
-    if ((Y1 < 0 && Y2 < 0) || (Y1 > HEIGHT && Y2 > HEIGHT))
-        return (1);
+	if ((X1 < 0 && X2 < 0) || (X1 > WIDTH && X2 > WIDTH))
+		return (1);
+	if ((Y1 < 0 && Y2 < 0) || (Y1 > HEIGHT && Y2 > HEIGHT))
+		return (1);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 19:48:09 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/15 15:58:12 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/16 17:02:48 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,23 @@ int			key_hook(int in, t_env *e)
 		mlx_destroy_window(e->mlx, e->win);
 		exit(0);
 	}
+	else if (in == SPACE)
+	{
+		e->deep = 0;
+		e->pixel = WIDTH / e->map.l_size / 2;
+		e->shift_w = 0;
+		e->shift_h = 0;
+	}
 	if (in == KP_5)
 		e->time.pos = 3;
-	if (in == KP_6)
+	else if (in == KP_6)
 		e->time.pos = 2;
-	if (in == KP_8)
+	else if (in == KP_8)
 		e->time.pos = 0;
-	if (in == KP_9)
+	else if (in == KP_9)
 		e->time.pos = 1;
-	key_hook_exp(in, e);
+	else
+		key_hook_exp(in, e);
 	return (0);
 }
 
