@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/01 15:48:22 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/16 14:22:00 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/16 16:26:27 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,5 @@ int			calcul(t_env *e, int dot1, int dot2)
 		conique(e, dot1, dot2);
 	else
 		perso(e, dot1, dot2);
-	if ((X1 < 0 && X2 < 0) || (X1 > WIDTH && X2 > WIDTH))
-		return (0);
-	if ((Y1 < 0 && Y2 < 0) || (Y1 > HEIGHT && Y2 > HEIGHT))
-		return (0);
 	return (0);
 }

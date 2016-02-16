@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 18:20:40 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/16 13:49:04 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/16 16:27:29 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void			draw_line(t_env *e)
 		draw_pixel(e, e->coord.color, index);
 }
 
-static void		index_start(t_env *e)
+static int		index_start(t_env *e)
 {
 	int start;
 	int map_w;
@@ -96,6 +96,11 @@ static void		index_start(t_env *e)
 	Y1 += y_start + e->shift_h;
 	X2 += x_start + e->shift_w;
 	Y2 += y_start + e->shift_h;
+    if ((X1 < 0 && X2 < 0) || (X1 > WIDTH && X2 > WIDTH))
+        return (1);
+    if ((Y1 < 0 && Y2 < 0) || (Y1 > HEIGHT && Y2 > HEIGHT))
+        return (1);
+	return (0);
 }
 
 void			black_img(t_env *e, int width, int height)
@@ -131,19 +136,15 @@ int				draw_map(t_env *e)
 	{
 		if (i % e->map.l_size != 0)
 		{
-			if (calcul(e, i - 1, i) == 0)
-			{
-				index_start(e);
+			calcul(e, i - 1, i);
+			if (index_start(e) == 0)
 				draw_line(e);
-			}
 		}
 		if (i / (int)e->map.l_size != 0)
 		{
-			if (calcul(e, i - e->map.l_size, i) == 0)
-			{
-				index_start(e);
+			calcul(e, i - e->map.l_size, i);
+			if (index_start(e) == 0)
 				draw_line(e);
-			}
 		}
 		i++;
 	}
