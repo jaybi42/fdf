@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 18:20:40 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/16 16:27:29 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/16 16:55:22 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,19 +79,11 @@ void			draw_line(t_env *e)
 
 static int		index_start(t_env *e)
 {
-	int start;
-	int map_w;
-	int map_h;
 	int y_start;
 	int x_start;
 
-	map_w = e->map.l_size * e->pixel;
-	map_h = e->map.l_nbr * e->pixel;
-	start = (HEIGHT - map_h) / 2 * WIDTH;
-	start = start + (WIDTH - map_w) / 2;
-	y_start = start / WIDTH;
-	x_start = start % WIDTH;
-//	printf("y_start : [%i], x_start : [%i]\n", y_start, x_start);
+	y_start = (HEIGHT - e->map.l_nbr * e->pixel) / 2;
+	x_start = (WIDTH - e->map.l_size * e->pixel) / 2;
 	X1 += x_start + e->shift_w;
 	Y1 += y_start + e->shift_h;
 	X2 += x_start + e->shift_w;
