@@ -14,3 +14,7 @@ Features:
 - Restart position with Space bar
 - rendering optimization
 - Centered map when lauch
+
+To work on in the future:
+
+- Rotation
