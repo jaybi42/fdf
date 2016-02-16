@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/01 17:11:03 by jguthert          #+#    #+#             */
-/*   Updated: 2016/01/08 15:10:55 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/16 14:20:18 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ static int	split_line(char const *line, t_env *e)
 			while (ft_isdigit(*line))
 				line++;
 		}
-		else
+		else if (*line == ' ' || *line == '\t')
 			line++;
+		else
+			return (1);
 	}
 	e->map.l_nbr++;
 	return (0);

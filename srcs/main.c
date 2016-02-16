@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 14:56:00 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/15 18:08:43 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/16 14:19:10 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ int			main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		fd = open(new_map(argv[1]), O_RDONLY);
+		if ((fd = open(new_map(argv[1]), O_RDONLY)) <= 0)
+			fd = open(argv[1], O_RDONLY);
 		if (fd <= 0)
 		{
 			ft_putendl_fd("Error opening the file.", 2);
