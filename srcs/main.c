@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 14:56:00 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/17 16:34:40 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/17 18:27:28 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,6 @@ int			main(int argc, char **argv)
 			ft_putendl_fd("fdf Error.", 2);
 	}
 	else
-		ft_putendl_fd("\n\033[33mEnter only one valid map.\033[0m", 2);
+		ft_putendl_fd("Enter only one valid map.", 2);
 	return (0);
 }
