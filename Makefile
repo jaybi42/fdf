@@ -20,7 +20,7 @@ CC = clang
 
 MLX_FW = -framework OpenGL -framework AppKit
 MLX_FLAGS = -lmlx #-lXext -lX11
-CFLAGS = -Wall -Wextra #-Werror
+CFLAGS = -Wall -Wextra -Werror
 
 
 ##=-  PATH -=##

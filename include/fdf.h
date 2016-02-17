@@ -6,7 +6,7 @@
 /*   By: jguthert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 19:06:40 by jguthert          #+#    #+#             */
-/*   Updated: 2016/02/16 17:05:59 by jguthert         ###   ########.fr       */
+/*   Updated: 2016/02/17 16:33:57 by jguthert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,8 +144,9 @@ typedef struct		s_env
 **Desc: error events
 */
 
-int					error(char const *file, char const *function, int line);
-int					errorno(char const *file, char const *function, int line);
+int					ft_error(char const *file, char const *function, int line);
+int					ft_errorno(char const *file,
+								char const *function, int line);
 
 /*
 **Name: Hook
