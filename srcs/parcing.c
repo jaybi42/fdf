@@ -21,9 +21,7 @@ static int	split_line(char const *line, t_env *e)
 	e->map.l_size = 0;
 	while (*line != '\0')
 	{
-		if (*line == '-' && (ft_isdigit(*(line + 1)) == 1))
-			line++;
-		if (ft_isdigit(*line))
+		if (ft_isdigit(*line) || (*line == '-' && ft_isdigit(*(line + 1))))
 		{
 			nbr = ft_atoi(line++);
 			if (ftv_pushback(&(e->map.v), &nbr) == 1)
