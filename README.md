@@ -13,8 +13,9 @@ Features:
 - Repeatkey [on]
 - Restart position with Space bar
 - rendering optimization
-- Centered map when lauch
+- Centered map when the program is launched
 
 To work on in the future:
 
 - Rotation
+- Intelligent re-size of the window whem program is launched
